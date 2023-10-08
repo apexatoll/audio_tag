@@ -1,3 +1,5 @@
 module ID3
   VERSION: String
+
+  type bytes = Array[Integer]
 end
