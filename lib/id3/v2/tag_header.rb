@@ -11,13 +11,28 @@ module ID3
 
       IDENTIFIER = "ID3".freeze
 
-      INVALID_FLAG_MASK = 0x8F
+      INVALID_FLAG_MASK   = 0x8F
+      EXPERIMENTAL_MASK   = 0x10
+      EXTENDED_MASK       = 0x20
+      UNSYNCHRONISED_MASK = 0x40
 
       def initialize(stream)
         super
 
         validate_identifier!
         validate_flags!
+      end
+
+      def experimental?
+        (flags & EXPERIMENTAL_MASK).positive?
+      end
+
+      def extended?
+        (flags & EXTENDED_MASK).positive?
+      end
+
+      def unsynchronised?
+        (flags & UNSYNCHRONISED_MASK).positive?
       end
 
       private

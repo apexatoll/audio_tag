@@ -5,7 +5,16 @@ module ID3
 
       IDENTIFIER: String
 
-      INVALID_FLAG_MASK: Integer
+      INVALID_FLAG_MASK:   Integer
+      EXPERIMENTAL_MASK:   Integer
+      EXTENDED_MASK:       Integer
+      UNSYNCHRONISED_MASK: Integer
+
+      def experimental?: -> bool
+
+      def extended?: -> bool
+
+      def unsynchronised?: -> bool
 
       private
 

@@ -3,7 +3,9 @@ RSpec.describe ID3::V2::TagHeader do
 
   let(:stream) { StringIO.new(string) }
 
-  let(:string) { "ID3\x03\x00\x00\x00\x00\x01z" }
+  let(:string) { "ID3\x03\x00#{flags}\x00\x00\x01z" }
+
+  let(:flags)  { "\x00" }
 
   describe "#initialize" do
     context "when identifier is invalid" do
@@ -81,6 +83,60 @@ RSpec.describe ID3::V2::TagHeader do
         let(:flags) { "\x80" }
 
         include_examples :invalid_flags
+      end
+    end
+  end
+
+  describe "#experimental?" do
+    context "when experimental flag is not set" do
+      let(:flags) { "\x00" }
+
+      it "is not experimental" do
+        expect(tag_header).not_to be_experimental
+      end
+    end
+
+    context "when experimental flag is set" do
+      let(:flags) { "\x10" }
+
+      it "is experimental" do
+        expect(tag_header).to be_experimental
+      end
+    end
+  end
+
+  describe "#extended?" do
+    context "when extended flag is not set" do
+      let(:flags) { "\x00" }
+
+      it "is not extended" do
+        expect(tag_header).not_to be_extended
+      end
+    end
+
+    context "when extended flag is set" do
+      let(:flags) { "\x20" }
+
+      it "is extended" do
+        expect(tag_header).to be_extended
+      end
+    end
+  end
+
+  describe "#unsynchronised?" do
+    context "when unsynchronised flag is not set" do
+      let(:flags) { "\x00" }
+
+      it "is not unsynchronised" do
+        expect(tag_header).not_to be_unsynchronised
+      end
+    end
+
+    context "when unsynchronised flag is set" do
+      let(:flags) { "\x40" }
+
+      it "is unsynchronised" do
+        expect(tag_header).to be_unsynchronised
       end
     end
   end
