@@ -1,0 +1,10 @@
+module ID3
+  module V2
+    class FrameHeader < Header
+      STRUCTURE: Array[Symbol]
+
+      attr_reader id: Symbol
+      attr_reader frame_size: Integer
+    end
+  end
+end
