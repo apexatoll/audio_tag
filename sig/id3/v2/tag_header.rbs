@@ -1,0 +1,21 @@
+module ID3
+  module V2
+    class TagHeader < Header
+      STRUCTURE: Array[Symbol]
+
+      IDENTIFIER: String
+
+      INVALID_FLAG_MASK: Integer
+
+      private
+
+      attr_reader identifier: String
+
+      attr_reader flags: Integer
+
+      def validate_identifier!: -> void
+
+      def validate_flags!: -> void
+    end
+  end
+end
