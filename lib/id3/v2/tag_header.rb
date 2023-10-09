@@ -35,6 +35,14 @@ module ID3
         (flags & UNSYNCHRONISED_MASK).positive?
       end
 
+      def tag_size
+        @tag_size ||= Synchsafe.parse(*bytes_for(:size))
+      end
+
+      def total_size
+        @total_size ||= tag_size + size
+      end
+
       private
 
       def identifier

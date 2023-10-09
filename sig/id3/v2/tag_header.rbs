@@ -16,6 +16,10 @@ module ID3
 
       def unsynchronised?: -> bool
 
+      attr_reader tag_size: Integer
+
+      attr_reader total_size: Integer
+
       private
 
       attr_reader identifier: String

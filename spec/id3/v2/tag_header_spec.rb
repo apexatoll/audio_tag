@@ -140,4 +140,20 @@ RSpec.describe ID3::V2::TagHeader do
       end
     end
   end
+
+  describe "#tag_size" do
+    subject(:tag_size) { tag_header.tag_size }
+
+    it "returns the expected value" do
+      expect(tag_size).to eq(250)
+    end
+  end
+
+  describe "#total_size" do
+    subject(:total_size) { tag_header.total_size }
+
+    it "returns the expected value" do
+      expect(total_size).to eq(260)
+    end
+  end
 end
