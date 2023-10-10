@@ -9,6 +9,10 @@ module ID3
         super(stream)
       end
 
+      def self.from_file(path)
+        File.open(path) { |file| new(file) }
+      end
+
       private
 
       def end_of_tag?

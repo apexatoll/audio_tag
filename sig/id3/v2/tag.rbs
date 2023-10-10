@@ -6,6 +6,8 @@ module ID3
 
       def initialize: (IO) -> void
 
+      def self.from_file: (String) -> Tag
+
       private
 
       def end_of_tag?: -> bool
