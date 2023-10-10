@@ -1,0 +1,24 @@
+module ID3
+  module V2
+    class FrameLookup
+      type frame_class = singleton(Frame)
+
+      class FrameType
+        attr_reader name: Symbol
+        attr_reader frame_class: frame_class
+
+        def initialize: (Symbol, ?frame_class) -> void
+      end
+
+      DEFAULT_FRAME_CLASS: frame_class
+
+      FRAME_TYPES: Hash[Symbol, FrameType]
+
+      def self.find: (Symbol) -> FrameType
+
+      private
+
+      def self.default_frame_type: (Symbol) -> FrameType
+    end
+  end
+end
