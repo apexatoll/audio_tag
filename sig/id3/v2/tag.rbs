@@ -6,6 +6,8 @@ module ID3
 
       def initialize: (IO) -> void
 
+      def to_h: -> Hash[Symbol, untyped]
+
       def self.from_file: (String) -> Tag
 
       private

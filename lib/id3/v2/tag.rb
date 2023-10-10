@@ -9,6 +9,10 @@ module ID3
         super(stream)
       end
 
+      def to_h
+        FrameMerger.new(frames).merge
+      end
+
       def self.from_file(path)
         File.open(path) { |file| new(file) }
       end

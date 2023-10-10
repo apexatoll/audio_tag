@@ -88,4 +88,30 @@ RSpec.describe ID3::V2::Tag do
       end
     end
   end
+
+  describe "#to_h" do
+    subject(:hash) { tag.to_h }
+
+    before do
+      allow(ID3::V2::FrameMerger).to receive(:new).and_return(frame_merger)
+    end
+
+    let(:frame_merger) { instance_spy(ID3::V2::FrameMerger, merge: merged) }
+
+    let(:merged) { { foo: "foo", bar: "bar" } }
+
+    it "instantiates a frame merger" do
+      hash
+      expect(ID3::V2::FrameMerger).to have_received(:new).with(tag.frames)
+    end
+
+    it "merges the frames" do
+      hash
+      expect(frame_merger).to have_received(:merge)
+    end
+
+    it "returns the merged frames" do
+      expect(hash).to eq(merged)
+    end
+  end
 end
