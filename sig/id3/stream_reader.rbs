@@ -1,0 +1,27 @@
+module ID3
+  class StreamReader
+    attr_reader stream: IO
+
+    def initialize: (IO) -> void
+
+    def read!: (Integer) -> String
+
+    def read: (Integer) -> String
+
+    def read_bytes!: (Integer) -> bytes
+
+    def read_bytes: (Integer) -> bytes
+
+    def read_byte!: -> Integer
+
+    def read_byte: -> Integer
+
+    def read_until!: (Integer, ?consume_delimiter: bool) -> String
+
+    def read_until: (Integer) -> String
+
+    def read_bytes_until!: (Integer, ?consume_delimiter: bool) -> bytes
+
+    def read_bytes_until: (Integer) -> bytes
+  end
+end
