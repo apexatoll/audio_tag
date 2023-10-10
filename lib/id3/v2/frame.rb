@@ -3,8 +3,8 @@ module ID3
     class Frame < StreamSection
       attr_reader :header, :raw_value
 
-      def initialize(stream)
-        @header = FrameHeader.new(stream)
+      def initialize(stream, header: FrameHeader.new(stream))
+        @header = header
 
         super(stream)
       end
