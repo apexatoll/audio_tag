@@ -8,9 +8,9 @@ module ID3
 
       def key: -> Symbol
 
-      def to_h: -> Hash[Symbol, untyped]
+      def value: -> untyped
 
-      alias value raw_value
+      def to_h: -> Hash[Symbol, untyped]
 
       def self.build: (IO) -> Frame
       

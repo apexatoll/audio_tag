@@ -48,11 +48,28 @@ RSpec.describe ID3::V2::Frame do
     end
   end
 
-  describe "#value" do
-    subject(:value) { frame.raw_value }
+  describe "#raw_value" do
+    subject(:raw_value) { frame.raw_value }
 
     it "returns the expected value" do
-      expect(value).to eq("\x00Beaumont Hannant\x00")
+      expect(raw_value).to eq("\x00Beaumont Hannant\x00")
+    end
+
+    it "advances the stream to the end of the frame" do
+      expect { raw_value }.to change { stream.pos }.by(28)
+    end
+
+    it "only advances the stream once" do
+      raw_value
+      expect { raw_value }.not_to change { stream.pos }
+    end
+  end
+
+  describe "#value" do
+    subject(:value) { frame.value }
+
+    it "returns the expected value" do
+      expect(value).to eq("Beaumont Hannant")
     end
 
     it "advances the stream to the end of the frame" do
@@ -69,7 +86,7 @@ RSpec.describe ID3::V2::Frame do
     subject(:hash) { frame.to_h }
 
     it "returns the expected hash" do
-      expect(hash).to eq(TPE1: "\x00Beaumont Hannant\x00")
+      expect(hash).to eq(TPE1: "Beaumont Hannant")
     end
   end
 

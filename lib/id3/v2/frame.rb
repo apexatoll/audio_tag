@@ -13,11 +13,13 @@ module ID3
         header.id
       end
 
+      def value
+        TextDecoder.decode(raw_value)
+      end
+
       def to_h
         { key => value }
       end
-
-      alias value raw_value
 
       def self.build(stream)
         header = FrameHeader.new(stream)

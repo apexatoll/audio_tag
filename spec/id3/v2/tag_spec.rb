@@ -60,7 +60,7 @@ RSpec.describe ID3::V2::Tag do
       subject(:frame) { frames[0] }
 
       it "has the expected attributes" do
-        expect(frame.to_h).to eq(TALB: "\x03Some Album")
+        expect(frame.to_h).to eq(TALB: "Some Album")
       end
     end
 
@@ -68,7 +68,7 @@ RSpec.describe ID3::V2::Tag do
       subject(:frame) { frames[1] }
 
       it "has the expected attributes" do
-        expect(frame.to_h).to eq(TIT2: "\x03Some Track")
+        expect(frame.to_h).to eq(TIT2: "Some Track")
       end
     end
 
@@ -76,7 +76,7 @@ RSpec.describe ID3::V2::Tag do
       subject(:frame) { frames[2] }
 
       it "has the expected attributes" do
-        expect(frame.to_h).to eq(TPE1: "\x03Some Artist")
+        expect(frame.to_h).to eq(TPE1: "Some Artist")
       end
     end
 
@@ -84,7 +84,7 @@ RSpec.describe ID3::V2::Tag do
       subject(:frame) { frames[3] }
 
       it "has the expected attributes" do
-        expect(frame.to_h).to eq(TDRL: "\x001996")
+        expect(frame.to_h).to eq(TDRL: "1996")
       end
     end
   end
