@@ -1,0 +1,20 @@
+module ID3
+  module V2
+    class Frame < StreamSection
+      attr_reader header: FrameHeader
+      attr_reader raw_value: String
+
+      def initialize: (IO) -> void
+
+      def key: -> Symbol
+
+      def to_h: -> Hash[Symbol, untyped]
+
+      alias value raw_value
+      
+      private
+
+      def size: -> Integer
+    end
+  end
+end
