@@ -11,6 +11,8 @@ module ID3
       def to_h: -> Hash[Symbol, untyped]
 
       alias value raw_value
+
+      def self.build: (IO) -> Frame
       
       private
 

@@ -19,6 +19,12 @@ module ID3
 
       alias value raw_value
 
+      def self.build(stream)
+        header = FrameHeader.new(stream)
+
+        header.frame_class.new(stream, header:)
+      end
+
       private
 
       def size

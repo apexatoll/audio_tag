@@ -4,7 +4,9 @@ RSpec.describe ID3::V2::Frame do
   let(:stream) { StringIO.new(string) }
 
   let(:string) do
-    "TPE1\x00\x00\x00\x12\x00\x00\x00Beaumont Hannant\x00\x00\x00\x00\x00"
+    "TPE1\u0000\u0000\u0000\u0012\u0000\u0000\u0000Beaumont Hannant\u0000" \
+    "TYER\u0000\u0000\u0000\u0006\u0000\u0000\u00001993\u0000" \
+    "TCON\u0000\u0000\u0000\t\u0000\u0000\u0000Ambient\u0000"
   end
 
   describe "#header" do
@@ -68,6 +70,52 @@ RSpec.describe ID3::V2::Frame do
 
     it "returns the expected hash" do
       expect(hash).to eq(TPE1: "\x00Beaumont Hannant\x00")
+    end
+  end
+
+  describe ".build" do
+    subject(:frame) { described_class.build(stream) }
+
+    let(:year_frame_type) do
+      ID3::V2::FrameLookup::FrameType.new(:year)
+    end
+
+    let(:genre_frame_type) do
+      ID3::V2::FrameLookup::FrameType.new(:genre, genre_class)
+    end
+
+    let(:genre_class) { Class.new(described_class) }
+
+    let(:lookup) do
+      { TYER: year_frame_type, TCON: genre_frame_type }
+    end
+
+    before do
+      stub_const "ID3::V2::FrameLookup::FRAME_TYPES", lookup
+    end
+
+    context "when frame type is not set in lookup" do
+      before { stream.seek(0) }
+
+      it "returns a generic frame" do
+        expect(frame).to be_a(described_class)
+      end
+    end
+
+    context "when frame type is not set in frame type" do
+      before { stream.seek(28) }
+
+      it "returns a generic frame" do
+        expect(frame).to be_a(described_class)
+      end
+    end
+
+    context "when frame type is set in frame type" do
+      before { stream.seek(44) }
+
+      it "returns an instance of the specified frame" do
+        expect(frame).to be_a(genre_class)
+      end
     end
   end
 end
