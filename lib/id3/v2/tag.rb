@@ -25,7 +25,7 @@ module ID3
 
       def extract!
         @frames = [].tap do |frames|
-          frames << Frame.new(stream) until end_of_tag?
+          frames << Frame.build(stream) until end_of_tag?
         end
       end
     end
