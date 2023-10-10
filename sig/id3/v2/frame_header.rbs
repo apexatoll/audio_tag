@@ -5,6 +5,12 @@ module ID3
 
       attr_reader id: Symbol
       attr_reader frame_size: Integer
+      attr_reader key: Symbol
+      attr_reader frame_class: singleton(Frame)
+
+      private
+
+      attr_reader frame_type: FrameLookup::FrameType
     end
   end
 end

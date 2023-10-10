@@ -14,6 +14,20 @@ module ID3
       def frame_size
         @frame_size ||= Synchsafe.parse(*bytes_for(:size))
       end
+
+      def key
+        @key ||= frame_type.name
+      end
+
+      def frame_class
+        @frame_class ||= frame_type.frame_class
+      end
+
+      private
+
+      def frame_type
+        @frame_type ||= FrameLookup.find(id)
+      end
     end
   end
 end
