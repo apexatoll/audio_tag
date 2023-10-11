@@ -16,4 +16,6 @@ RSpec.configure do |config|
   config.default_formatter = :doc if config.files_to_run.one?
 
   require_suport_files!
+
+  config.include AcceptanceHelper, acceptance: true
 end

@@ -61,6 +61,9 @@ RSpec/ContextWording:
     - unless
     - and
     - but
+RSpec/DescribeClass:
+  Exclude:
+    - spec/acceptance/**/*_spec.rb
 RSpec/DescribedClass:
   SkipBlocks: true
 RSpec/ExpectChange:
