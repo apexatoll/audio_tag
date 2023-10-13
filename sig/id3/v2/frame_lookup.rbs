@@ -15,10 +15,6 @@ module ID3
       FRAME_TYPES: Hash[Symbol, FrameType]
 
       def self.find: (Symbol) -> FrameType
-
-      private
-
-      def self.default_frame_type: (Symbol) -> FrameType
     end
   end
 end

@@ -26,7 +26,7 @@ RSpec.describe ID3::V2::FrameLookup do
 
       it "has the expected attributes" do
         expect(frame_type).to have_attributes(
-          name: :baz,
+          name: key,
           frame_class: default_frame_class
         )
       end

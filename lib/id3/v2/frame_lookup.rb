@@ -18,16 +18,8 @@ module ID3
       }.freeze
 
       def self.find(key)
-        FRAME_TYPES[key] || default_frame_type(key)
+        FRAME_TYPES[key] || FrameType.new(key)
       end
-
-      def self.default_frame_type(key)
-        name = key.to_s.downcase.to_sym
-
-        FrameType.new(name)
-      end
-
-      private_class_method :default_frame_type
     end
   end
 end
