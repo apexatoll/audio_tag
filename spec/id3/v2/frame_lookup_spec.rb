@@ -20,8 +20,8 @@ RSpec.describe ID3::V2::FrameLookup do
     context "when frame type with given key does not exist" do
       let(:key) { :BAZ }
 
-      it "returns a FrameType" do
-        expect(frame_type).to be_a(described_class::FrameType)
+      it "returns a FrameLookup" do
+        expect(frame_type).to be_a(described_class)
       end
 
       it "has the expected attributes" do
@@ -36,8 +36,8 @@ RSpec.describe ID3::V2::FrameLookup do
       context "and frame type does not set a frame class" do
         let(:key) { :FOO }
 
-        it "returns a FrameType" do
-          expect(frame_type).to be_a(described_class::FrameType)
+        it "returns a FrameLookup" do
+          expect(frame_type).to be_a(described_class)
         end
 
         it "has the expected attributes" do
@@ -51,8 +51,8 @@ RSpec.describe ID3::V2::FrameLookup do
       context "and frame type sets a frame class" do
         let(:key) { :BAR }
 
-        it "returns a FrameType" do
-          expect(frame_type).to be_a(described_class::FrameType)
+        it "returns a FrameLookup" do
+          expect(frame_type).to be_a(described_class)
         end
 
         it "has the expected attributes" do

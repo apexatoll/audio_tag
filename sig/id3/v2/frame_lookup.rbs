@@ -9,14 +9,12 @@ module ID3
 
       DEFAULT_FRAME_CLASS: frame_class
 
-      class FrameType
-        attr_reader name: Symbol
-        attr_reader frame_class: frame_class
+      attr_reader name: Symbol
+      attr_reader frame_class: frame_class
 
-        def initialize: (**untyped) -> void
-      end
+      def initialize: (**untyped) -> void
 
-      def self.find: (Symbol) -> FrameType
+      def self.find: (Symbol) -> instance
     end
   end
 end

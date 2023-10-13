@@ -44,19 +44,17 @@ module ID3
 
       DEFAULT_FRAME_CLASS = Frame
 
-      class FrameType
-        attr_reader :name, :frame_class
+      attr_reader :name, :frame_class
 
-        def initialize(**attributes)
-          @name        = attributes[:name]
-          @frame_class = attributes[:class] || DEFAULT_FRAME_CLASS
-        end
+      def initialize(**attributes)
+        @name        = attributes[:name]
+        @frame_class = attributes[:class] || DEFAULT_FRAME_CLASS
       end
 
       def self.find(key)
         attributes = FRAME_TYPES[key] || { name: key }
 
-        FrameType.new(**attributes)
+        new(**attributes)
       end
     end
   end

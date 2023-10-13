@@ -10,7 +10,7 @@ module ID3
 
       private
 
-      attr_reader frame_type: FrameLookup::FrameType
+      attr_reader frame_type: FrameLookup
     end
   end
 end

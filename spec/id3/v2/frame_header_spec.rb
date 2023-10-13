@@ -12,7 +12,7 @@ RSpec.describe ID3::V2::FrameHeader do
   end
 
   let(:frame_type) do
-    ID3::V2::FrameLookup::FrameType.new(name:, frame_class:)
+    ID3::V2::FrameLookup.new(name:, frame_class:)
   end
 
   before do
