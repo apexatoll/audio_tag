@@ -3,7 +3,7 @@ RSpec.describe "Cosmic Interlude" do
 
   let(:expected_tags) do
     {
-      APIC: {
+      picture: {
         encoding: :utf_8,
         mime: "image/png",
         type: :front_cover,
@@ -19,7 +19,7 @@ RSpec.describe "Cosmic Interlude" do
       TPUB: "Good Looking Records",
       TRCK: "1",
       TSSE: "Lavf60.3.100",
-      TXXX: [
+      user_frames: [
         { releasetype: "album;compilation" },
         { replaygain_track_gain: "-7.60 dB" },
         { label: "Good Looking Records" },

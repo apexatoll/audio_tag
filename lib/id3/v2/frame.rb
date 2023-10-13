@@ -10,7 +10,7 @@ module ID3
       end
 
       def key
-        header.id
+        FrameLookup.find(header.id).name
       end
 
       def data

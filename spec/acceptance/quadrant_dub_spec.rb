@@ -9,10 +9,10 @@ RSpec.describe "Quadrant Dub" do
       TDRC: "1995",
       TCON: "Electronic",
       TIT2: "Quadrant Dub I (Edit)",
-      TXXX: { tracktotal: "11" },
+      user_frames: { tracktotal: "11" },
       TRCK: "04",
       TSSE: "Lavf60.3.100",
-      APIC: {
+      picture: {
         encoding: :utf_8,
         mime: "image/png",
         type: :front_cover,

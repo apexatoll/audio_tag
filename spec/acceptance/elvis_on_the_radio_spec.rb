@@ -3,7 +3,7 @@ RSpec.describe "Elvis on the Radio" do
 
   let(:expected_tags) do
     {
-      TXXX: [
+      user_frames: [
         { musicbrainz_releasegroupid: "A415fc9b-1516-303e-B354-Fc3a5b269f1b" },
         { originaldate: "1990-02-12" },
         { originalyear: "1990" },
@@ -41,7 +41,7 @@ RSpec.describe "Elvis on the Radio" do
       TDRC: "1994",
       TRCK: "7",
       TSSE: "Lavf60.3.100",
-      APIC: {
+      picture: {
         encoding: :utf_8,
         mime: "image/png",
         type: :front_cover,

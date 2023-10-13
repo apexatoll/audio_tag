@@ -3,7 +3,7 @@ RSpec.describe "Spring" do
 
   let(:expected_tags) do
     {
-      TXXX: [
+      user_frames: [
         { totaltracks: "13" },
         { totaldiscs: "1" },
         { comment: "Heavenly HVNLP1CD" },
@@ -22,7 +22,7 @@ RSpec.describe "Spring" do
       TPOS: "1",
       TPE1: "Saint Etienne",
       TSSE: "Lavf60.3.100",
-      APIC: {
+      picture: {
         encoding: :utf_8,
         mime: "image/png",
         type: :front_cover,
