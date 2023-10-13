@@ -10,7 +10,7 @@ module ID3
       end
 
       def key
-        FrameType.find(header.id).name
+        header.key
       end
 
       def data
