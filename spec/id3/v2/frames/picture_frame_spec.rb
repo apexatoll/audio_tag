@@ -5,8 +5,8 @@ RSpec.describe ID3::V2::Frames::PictureFrame do
 
   let(:string) { "APIC\x008jr\x00\x00\x03image/png\x00\x03\x00\x89PNG" }
 
-  describe "#value" do
-    subject(:value) { picture_frame.value }
+  describe "#data" do
+    subject(:data) { picture_frame.data }
 
     let(:expected_hash) do
       {
@@ -18,7 +18,7 @@ RSpec.describe ID3::V2::Frames::PictureFrame do
     end
 
     it "returns the expected hash" do
-      expect(value).to eq(expected_hash)
+      expect(data).to eq(expected_hash)
     end
   end
 end

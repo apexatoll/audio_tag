@@ -6,7 +6,7 @@ module ID3
 
         TYPES: Array[Symbol]
 
-        def value: -> Hash[Symbol, untyped]
+        def data: -> Hash[Symbol, untyped]
 
         private
 

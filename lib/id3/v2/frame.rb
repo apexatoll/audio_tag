@@ -1,7 +1,7 @@
 module ID3
   module V2
     class Frame < StreamSection
-      attr_reader :header, :raw_value
+      attr_reader :header, :raw_data
 
       def initialize(stream, header: FrameHeader.new(stream))
         @header = header
@@ -13,12 +13,12 @@ module ID3
         header.id
       end
 
-      def value
-        TextDecoder.decode(raw_value)
+      def data
+        TextDecoder.decode(raw_data)
       end
 
       def to_h
-        { key => value }
+        { key => data }
       end
 
       def self.build(stream)
@@ -34,7 +34,7 @@ module ID3
       end
 
       def extract!
-        @raw_value = read!(size)
+        @raw_data = read!(size)
       end
     end
   end

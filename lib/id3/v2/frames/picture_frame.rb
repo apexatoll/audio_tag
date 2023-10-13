@@ -33,7 +33,7 @@ module ID3
           publisher_logo
         ].freeze
 
-        def value
+        def data
           { encoding:, mime:, type:, description: }
         end
 
