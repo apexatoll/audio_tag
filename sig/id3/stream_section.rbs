@@ -5,8 +5,6 @@ module ID3
     attr_reader first_pos: Integer
     attr_reader last_pos: Integer
 
-    def at_section_end?: -> bool
-
     def size: -> Integer
 
     def extract!: -> void

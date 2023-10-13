@@ -38,10 +38,6 @@ module ID3
       raise NotImplementedError, "size is not defined"
     end
 
-    def at_section_end?
-      stream.pos == last_pos
-    end
-
     def extract!
       raise NotImplementedError, "extraction method is not defined"
     end
