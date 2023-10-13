@@ -1,6 +1,49 @@
 module ID3
   module V2
     class FrameLookup
+      FRAME_TYPES = {
+        APIC: [:picture, Frames::PictureFrame],
+        TALB: [:album],
+        TBPM: [:tempo],
+        TCOM: [:composer],
+        TCON: [:genre],
+        TPE1: [:artist],
+        TKEY: [:key],
+        TXXX: [:user_frames, Frames::UserFrame],
+        TDAT: [:date],
+        TDLY: [:playlist_delay],
+        TENC: [:encoded_by],
+        TEXT: [:text],
+        TFLT: [:custom],
+        TIME: [:time],
+        TIT1: [:content_group_description],
+        TIT2: [:title],
+        TIT3: [:subtitle_description_refinement],
+        TLAN: [:language],
+        TLEN: [:length],
+        TMED: [:custom],
+        TOAL: [:original_album],
+        TOFN: [:original_filename],
+        TOLY: [:original_writer],
+        TOPE: [:original_artist],
+        TOWN: [:file_owner],
+        TPE2: [:album_artist],
+        TPE3: [:conductor],
+        TPE4: [:other_artist],
+        TPOS: [:part_in_set],
+        TPUB: [:label],
+        TRCK: [:track],
+        TRDA: [:recording_date],
+        TRSN: [:radio_station_name],
+        TRSO: [:radio_station_owner],
+        TSIZ: [:size],
+        TSRC: [:isrc],
+        TSSE: [:encoder],
+        TYER: [:year]
+      }.freeze
+
+      DEFAULT_FRAME_CLASS = Frame
+
       class FrameType
         attr_reader :name, :frame_class
 
@@ -10,51 +53,10 @@ module ID3
         end
       end
 
-      DEFAULT_FRAME_CLASS = Frame
-
-      FRAME_TYPES = {
-        APIC: FrameType.new(:picture, Frames::PictureFrame),
-        TALB: FrameType.new(:album),
-        TBPM: FrameType.new(:tempo),
-        TCOM: FrameType.new(:composer),
-        TCON: FrameType.new(:genre),
-        TPE1: FrameType.new(:artist),
-        TKEY: FrameType.new(:key),
-        TXXX: FrameType.new(:user_frames, Frames::UserFrame),
-        TDAT: FrameType.new(:date),
-        TDLY: FrameType.new(:playlist_delay),
-        TENC: FrameType.new(:encoded_by),
-        TEXT: FrameType.new(:text),
-        TFLT: FrameType.new(:custom),
-        TIME: FrameType.new(:time),
-        TIT1: FrameType.new(:content_group_description),
-        TIT2: FrameType.new(:title),
-        TIT3: FrameType.new(:subtitle_description_refinement),
-        TLAN: FrameType.new(:language),
-        TLEN: FrameType.new(:length),
-        TMED: FrameType.new(:custom),
-        TOAL: FrameType.new(:original_album),
-        TOFN: FrameType.new(:original_filename),
-        TOLY: FrameType.new(:original_writer),
-        TOPE: FrameType.new(:original_artist),
-        TOWN: FrameType.new(:file_owner),
-        TPE2: FrameType.new(:album_artist),
-        TPE3: FrameType.new(:conductor),
-        TPE4: FrameType.new(:other_artist),
-        TPOS: FrameType.new(:part_in_set),
-        TPUB: FrameType.new(:label),
-        TRCK: FrameType.new(:track),
-        TRDA: FrameType.new(:recording_date),
-        TRSN: FrameType.new(:radio_station_name),
-        TRSO: FrameType.new(:radio_station_owner),
-        TSIZ: FrameType.new(:size),
-        TSRC: FrameType.new(:isrc),
-        TSSE: FrameType.new(:encoder),
-        TYER: FrameType.new(:year)
-      }.freeze
-
       def self.find(key)
-        FRAME_TYPES[key] || FrameType.new(key)
+        attributes = FRAME_TYPES[key] || [key]
+
+        FrameType.new(attributes[0], attributes[1] || DEFAULT_FRAME_CLASS)
       end
     end
   end

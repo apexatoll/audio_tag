@@ -3,16 +3,18 @@ module ID3
     class FrameLookup
       type frame_class = singleton(Frame)
 
+      type frame_attributes = Array[untyped]
+
+      FRAME_TYPES: Hash[Symbol, frame_attributes]
+
+      DEFAULT_FRAME_CLASS: frame_class
+
       class FrameType
         attr_reader name: Symbol
         attr_reader frame_class: frame_class
 
         def initialize: (Symbol, ?frame_class) -> void
       end
-
-      DEFAULT_FRAME_CLASS: frame_class
-
-      FRAME_TYPES: Hash[Symbol, FrameType]
 
       def self.find: (Symbol) -> FrameType
     end
