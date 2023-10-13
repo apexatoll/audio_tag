@@ -9,7 +9,7 @@ RSpec.describe "Quadrant Dub" do
       TDRC: "1995",
       TCON: "Electronic",
       TIT2: "Quadrant Dub I (Edit)",
-      TXXX: "TRACKTOTAL\x0011",
+      TXXX: { tracktotal: "11" },
       TRCK: "04",
       TSSE: "Lavf60.3.100",
       APIC: {

@@ -13,7 +13,8 @@ module ID3
       DEFAULT_FRAME_CLASS = Frame
 
       FRAME_TYPES = {
-        APIC: FrameType.new(:picture, Frames::PictureFrame)
+        APIC: FrameType.new(:picture, Frames::PictureFrame),
+        TXXX: FrameType.new(:user_frames, Frames::UserFrame)
       }.freeze
 
       def self.find(key)

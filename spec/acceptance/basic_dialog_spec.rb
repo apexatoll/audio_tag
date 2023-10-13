@@ -6,8 +6,8 @@ RSpec.describe "Basic Dialog" do
       TALB: "Basic Data Manipulation (Tastes and Textures, Vol. 2)",
       TPE1: "Beaumont Hannant",
       TXXX: [
-        "COMMENT\x00Track 1",
-        "TRACKTOTAL\x009"
+        { comment: "Track 1" },
+        { tracktotal: "9" }
       ],
       TYER: "1993",
       TCON: "Ambient",

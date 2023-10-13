@@ -4,14 +4,14 @@ RSpec.describe "Spring" do
   let(:expected_tags) do
     {
       TXXX: [
-        "TOTALTRACKS\x0013",
-        "totaldiscs\x001",
-        "comment\x00Heavenly HVNLP1CD",
-        "REPLAYGAIN_REFERENCE_LOUDNESS\x0089.0 dB",
-        "REPLAYGAIN_TRACK_GAIN\x00-4.61 dB",
-        "REPLAYGAIN_TRACK_PEAK\x001.00000000",
-        "REPLAYGAIN_ALBUM_GAIN\x00-5.56 dB",
-        "REPLAYGAIN_ALBUM_PEAK\x001.00000000"
+        { totaltracks: "13" },
+        { totaldiscs: "1" },
+        { comment: "Heavenly HVNLP1CD" },
+        { replaygain_reference_loudness: "89.0 dB" },
+        { replaygain_track_gain: "-4.61 dB" },
+        { replaygain_track_peak: "1.00000000" },
+        { replaygain_album_gain: "-5.56 dB" },
+        { replaygain_album_peak: "1.00000000" }
       ],
       TALB: "Foxbase Alpha",
       TPE2: "Saint Etienne",
