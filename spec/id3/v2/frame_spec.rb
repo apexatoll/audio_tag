@@ -96,11 +96,11 @@ RSpec.describe ID3::V2::Frame do
     subject(:frame) { described_class.build(stream) }
 
     let(:year_frame_type) do
-      [:year]
+      { name: :year }
     end
 
     let(:genre_frame_type) do
-      [:genre, genre_class]
+      { name: :genre, class: genre_class }
     end
 
     let(:genre_class) { Class.new(described_class) }

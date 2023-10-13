@@ -1,8 +1,8 @@
 RSpec.describe ID3::V2::FrameLookup do
   let(:lookup) do
     {
-      FOO: [:foo],
-      BAR: [:bar, frame_class]
+      FOO: { name: :foo },
+      BAR: { name: :bar, class: frame_class }
     }
   end
 
