@@ -26,7 +26,7 @@ module ID3
       private
 
       def frame_type
-        @frame_type ||= FrameLookup.find(id)
+        @frame_type ||= FrameType.find(id)
       end
     end
   end

@@ -13,7 +13,7 @@ RSpec.describe ID3::V2::Tag do
   end
 
   before do
-    stub_const "ID3::V2::FrameLookup::FRAME_TYPES", {}
+    stub_const "ID3::V2::FrameType::LOOKUP", {}
   end
 
   describe "#header" do

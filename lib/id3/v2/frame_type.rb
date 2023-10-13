@@ -1,7 +1,7 @@
 module ID3
   module V2
-    class FrameLookup
-      FRAME_TYPES = {
+    class FrameType
+      LOOKUP = {
         APIC: { name: :picture, class: Frames::PictureFrame },
         TALB: { name: :album },
         TBPM: { name: :tempo },
@@ -52,7 +52,7 @@ module ID3
       end
 
       def self.find(key)
-        attributes = FRAME_TYPES[key] || { name: key }
+        attributes = LOOKUP[key] || { name: key }
 
         new(**attributes)
       end

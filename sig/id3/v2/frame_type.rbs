@@ -1,11 +1,11 @@
 module ID3
   module V2
-    class FrameLookup
+    class FrameType
       type frame_class = singleton(Frame)
 
       type frame_attributes = Hash[Symbol, untyped]
 
-      FRAME_TYPES: Hash[Symbol, frame_attributes]
+      LOOKUP: Hash[Symbol, frame_attributes]
 
       DEFAULT_FRAME_CLASS: frame_class
 

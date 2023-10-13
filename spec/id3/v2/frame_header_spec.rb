@@ -12,11 +12,11 @@ RSpec.describe ID3::V2::FrameHeader do
   end
 
   let(:frame_type) do
-    ID3::V2::FrameLookup.new(name:, frame_class:)
+    ID3::V2::FrameType.new(name:, frame_class:)
   end
 
   before do
-    allow(ID3::V2::FrameLookup)
+    allow(ID3::V2::FrameType)
       .to receive(:find)
       .with(:TALB)
       .and_return(frame_type)

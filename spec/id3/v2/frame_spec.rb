@@ -9,7 +9,7 @@ RSpec.describe ID3::V2::Frame do
     "TCON\u0000\u0000\u0000\t\u0000\u0000\u0000Ambient\u0000"
   end
 
-  before { stub_const "ID3::V2::FrameLookup::FRAME_TYPES", {} }
+  before { stub_const "ID3::V2::FrameType::LOOKUP", {} }
 
   describe "#header" do
     subject(:header) { frame.header }
@@ -110,7 +110,7 @@ RSpec.describe ID3::V2::Frame do
     end
 
     before do
-      stub_const "ID3::V2::FrameLookup::FRAME_TYPES", lookup
+      stub_const "ID3::V2::FrameType::LOOKUP", lookup
     end
 
     context "when frame type is not set in lookup" do

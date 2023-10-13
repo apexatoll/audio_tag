@@ -1,4 +1,4 @@
-RSpec.describe ID3::V2::FrameLookup do
+RSpec.describe ID3::V2::FrameType do
   let(:lookup) do
     {
       FOO: { name: :foo },
@@ -11,7 +11,7 @@ RSpec.describe ID3::V2::FrameLookup do
 
   before do
     stub_const "#{described_class}::DEFAULT_FRAME_CLASS", default_frame_class
-    stub_const "#{described_class}::FRAME_TYPES", lookup
+    stub_const "#{described_class}::LOOKUP", lookup
   end
 
   describe ".find" do
@@ -20,7 +20,7 @@ RSpec.describe ID3::V2::FrameLookup do
     context "when frame type with given key does not exist" do
       let(:key) { :BAZ }
 
-      it "returns a FrameLookup" do
+      it "returns a FrameType" do
         expect(frame_type).to be_a(described_class)
       end
 
@@ -36,7 +36,7 @@ RSpec.describe ID3::V2::FrameLookup do
       context "and frame type does not set a frame class" do
         let(:key) { :FOO }
 
-        it "returns a FrameLookup" do
+        it "returns a FrameType" do
           expect(frame_type).to be_a(described_class)
         end
 
@@ -51,7 +51,7 @@ RSpec.describe ID3::V2::FrameLookup do
       context "and frame type sets a frame class" do
         let(:key) { :BAR }
 
-        it "returns a FrameLookup" do
+        it "returns a FrameType" do
           expect(frame_type).to be_a(described_class)
         end
 
