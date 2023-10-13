@@ -23,5 +23,9 @@ module ID3
     def read_bytes_until!: (Integer, ?consume_delimiter: bool) -> bytes
 
     def read_bytes_until: (Integer) -> bytes
+
+    private
+
+    def end_of_stream?: -> bool
   end
 end

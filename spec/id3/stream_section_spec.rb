@@ -80,4 +80,56 @@ RSpec.describe ID3::StreamSection do
       end
     end
   end
+
+  describe "#extract!" do
+    context "when extract method uses read*_until method" do
+      context "and stream does not contain given byte" do
+        let(:extract_method) do
+          Module.new do
+            attr_reader :value
+
+            def extract!
+              @value = read_until!(0x00)
+            end
+          end
+        end
+
+        it "reads the entire section" do
+          expect(stream_section.value).to eq(string[0...10])
+        end
+      end
+
+      context "and stream contains given byte outside section" do
+        let(:extract_method) do
+          Module.new do
+            attr_reader :value
+
+            def extract!
+              @value = read_until!("D".ord)
+            end
+          end
+        end
+
+        it "does not read past section boundary" do
+          expect(stream_section.value).to eq(string[0...10])
+        end
+      end
+
+      context "and stream contains given byte inside section" do
+        let(:extract_method) do
+          Module.new do
+            attr_reader :value
+
+            def extract!
+              @value = read_until!("m".ord)
+            end
+          end
+        end
+
+        it "reads up until the first occurrence inside the section" do
+          expect(stream_section.value).to eq("Lore")
+        end
+      end
+    end
+  end
 end

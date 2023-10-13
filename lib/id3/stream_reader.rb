@@ -59,9 +59,12 @@ module ID3
       read_bytes_until(byte).pack("c*")
     end
 
+    # Uses instance method rather than stream.eof? directly as this can be
+    # overridden in child classes to prevent read*_until methods extending past
+    # the end of a settable limit.
     def read_bytes_until!(byte, consume_delimiter: true)
       [].tap do |bytes|
-        until stream.eof?
+        until end_of_stream?
           next_byte = stream.getbyte
 
           if next_byte == byte
@@ -80,6 +83,12 @@ module ID3
       read_bytes_until!(byte)
     ensure
       stream.seek(pos)
+    end
+
+    private
+
+    def end_of_stream?
+      stream.eof?
     end
   end
 end

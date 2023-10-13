@@ -45,5 +45,10 @@ module ID3
     def advance!
       stream.seek(last_pos)
     end
+
+    # Ensures that read*_until methods do not read past the end of the section.
+    def end_of_stream?
+      super || stream.pos == last_pos
+    end
   end
 end
