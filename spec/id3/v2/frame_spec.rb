@@ -9,6 +9,8 @@ RSpec.describe ID3::V2::Frame do
     "TCON\u0000\u0000\u0000\t\u0000\u0000\u0000Ambient\u0000"
   end
 
+  before { stub_const "ID3::V2::FrameLookup::FRAME_TYPES", {} }
+
   describe "#header" do
     subject(:header) { frame.header }
 

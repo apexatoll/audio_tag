@@ -12,6 +12,10 @@ RSpec.describe ID3::V2::Tag do
     "\x00\x00\x00\x00\x00\x00\x00\x00"
   end
 
+  before do
+    stub_const "ID3::V2::FrameLookup::FRAME_TYPES", {}
+  end
+
   describe "#header" do
     subject(:header) { tag.header }
 
