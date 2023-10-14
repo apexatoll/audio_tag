@@ -9,7 +9,9 @@ RSpec.describe "Cosmic Interlude" do
         type: :front_cover,
         description: ""
       },
-      COMM: "eng\x00Good Looking Records",
+      comments: {
+        eng: { _: "Good Looking Records" }
+      },
       album: "Producer 01",
       genre: "Electronic",
       TDRC: "2000",
