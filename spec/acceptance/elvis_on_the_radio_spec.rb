@@ -38,7 +38,7 @@ RSpec.describe "Elvis on the Radio" do
       album_artist: "The KLF",
       composer: "Jimmy Cauty;Bill Drummond",
       part_in_set: "1",
-      TDRC: "1994",
+      date: "1994",
       track: "7",
       encoder: "Lavf60.3.100",
       picture: {

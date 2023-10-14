@@ -15,7 +15,7 @@ RSpec.describe "Spring" do
       ],
       album: "Foxbase Alpha",
       album_artist: "Saint Etienne",
-      TDRC: "1991",
+      date: "1991",
       genre: "Pop",
       title: "Spring",
       track: "06",

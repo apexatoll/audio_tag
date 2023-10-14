@@ -6,7 +6,7 @@ RSpec.describe "Quadrant Dub" do
       album: "BCD",
       album_artist: "Basic Channel",
       artist: "Basic Channel",
-      TDRC: "1995",
+      date: "1995",
       genre: "Electronic",
       title: "Quadrant Dub I (Edit)",
       user_frames: { tracktotal: "11" },

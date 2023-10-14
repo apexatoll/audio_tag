@@ -42,8 +42,8 @@ RSpec.describe "Falling" do
       genre: "",
       track: "11/11",
       part_in_set: "1/1",
-      TDRC: "1990-09-11",
-      TCOP: "\xE2\x84\x97 1989 Warner Records Inc.".force_encoding(
+      date: "1990-09-11",
+      copyright: "\xE2\x84\x97 1989 Warner Records Inc.".force_encoding(
         Encoding::ASCII_8BIT
       ),
       album_artist: "Twin Peaks",
