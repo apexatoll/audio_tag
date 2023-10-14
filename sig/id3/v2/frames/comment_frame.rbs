@@ -1,0 +1,21 @@
+module ID3
+  module V2
+    module Frames
+      class CommentFrame < Frame
+        def data: -> Hash[Symbol, Hash[Symbol, String]]
+
+        private
+
+        attr_reader encoding: Integer
+        attr_reader text: String
+
+        @description: String
+        @language: String
+
+        def description: -> Symbol
+
+        def language: -> Symbol
+      end
+    end
+  end
+end
