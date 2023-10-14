@@ -3,6 +3,7 @@ module ID3
     class FrameType
       LOOKUP = {
         APIC: { name: :picture, class: Frames::PictureFrame },
+        COMM: { name: :comments, class: Frames::CommentFrame },
         TALB: { name: :album },
         TBPM: { name: :tempo },
         TCOM: { name: :composer },
