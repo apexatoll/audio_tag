@@ -9,7 +9,7 @@ RSpec.describe "Fourteen Thirtythree" do
       album: "em:t 2295",
       track: "4",
       part_in_set: "1",
-      TDRC: "1995",
+      date: "1995",
       genre: "Ambient",
       user_frames: [
         { tcmp: "1" },

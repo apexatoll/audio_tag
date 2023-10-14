@@ -2,12 +2,14 @@ module ID3
   module V2
     class FrameType
       LOOKUP = {
+        # 2.3.0
         APIC: { name: :picture, class: Frames::PictureFrame },
         COMM: { name: :comments, class: Frames::CommentFrame },
         TALB: { name: :album },
         TBPM: { name: :tempo },
         TCOM: { name: :composer },
         TCON: { name: :genre },
+        TCOP: { name: :copyright },
         TPE1: { name: :artist },
         TKEY: { name: :key },
         TXXX: { name: :user_frames, class: Frames::UserFrame },
@@ -40,6 +42,21 @@ module ID3
         TSIZ: { name: :size },
         TSRC: { name: :isrc },
         TSSE: { name: :encoder },
+
+        # 2.4.0
+        TDEN: { name: :encoded_at },
+        TDOR: { name: :originally_released_at },
+        TDRC: { name: :date },
+        TDRL: { name: :released_at },
+        TDTG: { name: :tagged_at },
+        TIPL: { name: :involved_people },
+        TMCL: { name: :musician_credits },
+        TMOO: { name: :mood },
+        TPRO: { name: :produced_notice },
+        TSOA: { name: :album_sort },
+        TSOP: { name: :performer_sort },
+        TSOT: { name: :title_sort },
+        TSST: { name: :set_subtitle },
         TYER: { name: :year }
       }.freeze
 

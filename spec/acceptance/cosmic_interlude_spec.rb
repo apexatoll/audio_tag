@@ -14,7 +14,7 @@ RSpec.describe "Cosmic Interlude" do
       },
       album: "Producer 01",
       genre: "Electronic",
-      TDRC: "2000",
+      date: "2000",
       title: "Cosmic Interlude",
       artist: "LTJ Bukem",
       part_in_set: "1",
