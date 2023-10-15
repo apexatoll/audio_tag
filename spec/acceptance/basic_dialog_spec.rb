@@ -5,10 +5,10 @@ RSpec.describe "Basic Dialog" do
     {
       album: "Basic Data Manipulation (Tastes and Textures, Vol. 2)",
       artist: "Beaumont Hannant",
-      user_frames: [
-        { comment: "Track 1" },
-        { tracktotal: "9" }
-      ],
+      user_frames: {
+        comment: "Track 1",
+        tracktotal: "9"
+      },
       year: "1993",
       genre: "Ambient",
       title: "Basic Dialog",
