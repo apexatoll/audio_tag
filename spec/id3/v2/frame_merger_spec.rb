@@ -51,12 +51,12 @@ RSpec.describe ID3::V2::FrameMerger do
 
         let(:expected) do
           {
-            foo: [{ foo: "foo" }, { bar: "bar" }],
+            foo: { foo: "foo",  bar: "bar" },
             baz: { baz: "baz" }
           }
         end
 
-        it "merges the duplicate hashes into an array" do
+        it "merges the duplicate hashes into single hash" do
           expect(merged).to eq(expected)
         end
       end

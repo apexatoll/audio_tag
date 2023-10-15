@@ -10,8 +10,9 @@ module ID3
       def merge
         pairs.each_with_object({}) do |(key, value), hash|
           case hash[key]
-          when Hash, String then hash[key] = [hash[key], value]
-          when Array        then hash[key] << value
+          when Hash   then hash[key].merge!(value)
+          when String then hash[key] = [hash[key], value]
+          when Array  then hash[key] << value
           else hash[key] = value
           end
         end
