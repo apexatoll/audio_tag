@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.authors = ["Chris Welham"]
   spec.email = ["71787007+apexatoll@users.noreply.github.com"]
 
-  spec.summary = "ID3 audio tagging interface implemented in Ruby"
+  spec.summary = "Ruby library for reading and writing audio file metadata"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 3.2.0"
 
