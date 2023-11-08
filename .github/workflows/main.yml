@@ -1,4 +1,4 @@
-name: "ID3 CI"
+name: "AudioTag CI"
 
 on:
   push:
