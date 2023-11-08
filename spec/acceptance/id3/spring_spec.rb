@@ -31,5 +31,5 @@ RSpec.describe "Spring" do
     }
   end
 
-  include_examples :parses_tags
+  include_examples :parses_id3_tags
 end
