@@ -1,0 +1,16 @@
+module AudioTag
+  module ID3
+    class StreamSection < StreamReader
+      private
+
+      attr_reader first_pos: Integer
+      attr_reader last_pos: Integer
+
+      def size: -> Integer
+
+      def extract!: -> void
+
+      def advance!: -> void
+    end
+  end
+end

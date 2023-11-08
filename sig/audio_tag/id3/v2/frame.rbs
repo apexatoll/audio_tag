@@ -1,0 +1,24 @@
+module AudioTag
+  module ID3
+    module V2
+      class Frame < StreamSection
+        attr_reader header: FrameHeader
+        attr_reader raw_data: String
+
+        def initialize: (IO, ?header: FrameHeader) -> void
+
+        def key: -> Symbol
+
+        def data: -> untyped
+
+        def to_h: -> Hash[Symbol, untyped]
+
+        def self.build: (IO) -> Frame
+        
+        private
+
+        def size: -> Integer
+      end
+    end
+  end
+end

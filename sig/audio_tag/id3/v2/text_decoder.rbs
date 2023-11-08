@@ -1,0 +1,13 @@
+module AudioTag
+  module ID3
+    module V2
+      class TextDecoder
+        ENCODINGS: Hash[Symbol, Regexp]
+
+        def self.encoding: (String) -> Symbol?
+
+        def self.decode: (String) -> String
+      end
+    end
+  end
+end

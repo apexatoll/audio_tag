@@ -1,0 +1,22 @@
+module AudioTag
+  module ID3
+    module V2
+      class FrameType
+        type frame_class = singleton(Frame)
+
+        type frame_attributes = Hash[Symbol, untyped]
+
+        LOOKUP: Hash[Symbol, frame_attributes]
+
+        DEFAULT_FRAME_CLASS: frame_class
+
+        attr_reader name: Symbol
+        attr_reader frame_class: frame_class
+
+        def initialize: (**untyped) -> void
+
+        def self.find: (Symbol) -> instance
+      end
+    end
+  end
+end

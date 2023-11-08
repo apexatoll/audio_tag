@@ -1,0 +1,20 @@
+module AudioTag
+  module ID3
+    module V2
+      class FrameMerger
+
+        type frames = Array[Frame]
+
+        attr_reader frames: frames
+
+        def initialize: (frames) -> void
+
+        def merge: -> Hash[Symbol, untyped]
+
+        private
+
+        def pairs: -> Array[[Symbol, untyped]]
+      end
+    end
+  end
+end

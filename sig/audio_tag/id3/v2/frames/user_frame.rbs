@@ -1,0 +1,22 @@
+module AudioTag
+  module ID3
+    module V2
+      module Frames
+        class UserFrame < Frame
+          DESCRIPTIONS: Hash[Symbol, Symbol]
+
+          def data: -> Hash[Symbol, untyped]
+
+          private
+
+          attr_reader encoding: Integer
+          attr_reader value: String
+
+          @description: String
+
+          def description: -> Symbol
+        end
+      end
+    end
+  end
+end
