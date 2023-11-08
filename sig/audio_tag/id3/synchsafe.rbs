@@ -1,0 +1,12 @@
+module AudioTag
+  module ID3
+    class Synchsafe
+      MAX_BYTE: Integer
+
+      class InvalidBytesError < StandardError
+      end
+
+      def self.parse: (*Integer) -> Integer
+    end
+  end
+end

@@ -6,7 +6,7 @@ end
 
 module AcceptanceHelper
   def tags
-    ID3::V2::Tag.from_file(path).to_h
+    AudioTag::ID3::V2::Tag.from_file(path).to_h
   end
 
   def example(name)

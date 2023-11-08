@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require "bundler/setup"
-require "id3"
+require "audio_tag"
 require "irb"
 
 IRB.start(__FILE__)

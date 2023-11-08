@@ -1,0 +1,5 @@
+module AudioTag
+  VERSION: String
+
+  type bytes = Array[Integer]
+end

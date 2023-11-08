@@ -1,0 +1,18 @@
+module AudioTag
+  module ID3
+    module V2
+      class FrameHeader < Header
+        STRUCTURE: Array[Symbol]
+
+        attr_reader id: Symbol
+        attr_reader frame_size: Integer
+        attr_reader key: Symbol
+        attr_reader frame_class: singleton(Frame)
+
+        private
+
+        attr_reader frame_type: FrameType
+      end
+    end
+  end
+end

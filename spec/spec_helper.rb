@@ -1,4 +1,4 @@
-require "id3"
+require "audio_tag"
 
 def require_suport_files!
   Dir[File.join(__dir__, "support/**/*.rb")].each { |file| require file }
