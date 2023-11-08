@@ -55,7 +55,7 @@ RSpec.describe "Falling" do
     }
   end
 
-  include_examples :parses_tags
+  include_examples :parses_id3_tags
 end
 
 # rubocop:enable Layout/TrailingWhitespace

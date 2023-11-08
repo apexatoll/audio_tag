@@ -5,7 +5,7 @@ RSpec.configure do |config|
 end
 
 module AcceptanceHelper
-  def tags
+  def id3_tags
     AudioTag::ID3::V2::Tag.from_file(path).to_h
   end
 
@@ -17,9 +17,9 @@ module AcceptanceHelper
     RSpec.current_example.metadata[:full_description].strip
   end
 
-  RSpec.shared_examples :parses_tags do
+  RSpec.shared_examples :parses_id3_tags do
     it "returns the expected tags" do
-      expect(tags).to eq(expected_tags)
+      expect(id3_tags).to eq(expected_tags)
     end
   end
 end
